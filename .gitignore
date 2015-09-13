@@ -1,0 +1,6 @@
+*.sw?
+*.exe
+*.obj
+*.sha1
+html/
+latex/
