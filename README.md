@@ -345,6 +345,13 @@ The following command undoes the mapping.
 [7746]: https://bugzilla.kernel.org/show_bug.cgi?id=7746
 
 ### Mac OS X: Seil
+Mac OS X provides some limited way of mapping modifier keys at Apple
+Menu > System Preferences > Keyboard > Modifier Keys. However, the
+mapping options here are very limited. For example, it does not allow
+Caps Lock key to be mapped to Escape key. Therefore, in general, it
+becomes necessary to install additional software to map keys in Mac OS
+X.
+
 A popular tool for mapping one key to another on Mac OS X is [Seil][].
 Here is an article by my beautiful girlfriend and wife that describes
 how to map Caps Lock key to Escape key on Mac OS X using Seil:
