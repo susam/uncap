@@ -10,6 +10,7 @@ Map Caps Lock key to Escape key, or any to any key, on Windows systems.
 
 Contents
 --------
+* [Necessity](#necessity)
 * [Getting started](#getting-started)
 * [Usage](#usage)
 * [Alternatives](#alternatives)
@@ -22,6 +23,35 @@ Contents
 * [Resources](#resources)
 * [License](#license)
 * [Contact](#contact)
+
+
+Features
+--------
+The following list briefly describes some of the features of Uncap.
+
+  1. Map Caps Lock key to Escape key on a new Windows system with almost
+     no effort. Just download and double-click. This is the primary
+     reason why Uncap was written. This tool was written for users of vi
+     editor who like to map their Caps Lock key to Escape key for
+     convenience.
+  2. Map any key to any key, multiple keys to other keys, or disable
+     keys using command line arguments. No additional file or script is
+     required.
+  3. Enable, disable or modify key mappings without having to reboot the
+     Windows system.
+  4. Disable key mappings easily by stopping Uncap.
+  5. It is a single-file executable. It is very lightweight. The
+     executable is only about 60 KB in size. It occupies about 1 MB or
+     less of memory, and negligible CPU while running.
+
+There are several other methods and tools available on Windows to map
+one key to another. But none of them seem to have all five features
+enumerated above. For example, editing [Scancode
+Map](#windows-scancode-map-registry-value) registry value requires the
+Windows system to be rebooted after every change. On the other hand
+[AutoHotKey](#windows-autohotkey) requires an additional script file to
+be written. Therefore, Uncap was written to support all five features
+described above.
 
 
 Getting started
