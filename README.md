@@ -10,7 +10,7 @@ Map Caps Lock key to Escape key, or any to any key, on Windows systems.
 
 Contents
 --------
-* [Necessity](#necessity)
+* [Features](#features)
 * [Getting started](#getting-started)
 * [Usage](#usage)
 * [Alternatives](#alternatives)
