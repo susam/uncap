@@ -1,6 +1,9 @@
 @echo off
 setlocal
 
+rem Top level directory of the project.
+set top=%~dp0..\
+
 rem Set environment for Visual Studio 2005 tools.
 call "%vs80comntools%\vsvars32.bat"
 
@@ -11,4 +14,4 @@ rem PKEYBDINPUT, INPUT, SendInput, etc. defined in winuser.h requires
 rem _WIN32_WINNT > 0x0400
 
 rem Build uncap.
-cl /W4 /O2 /D_CRT_SECURE_NO_WARNINGS /D_WIN32_WINNT=0x0401 uncap.c /link user32.lib
+cl /W4 /O2 /D_CRT_SECURE_NO_WARNINGS /D_WIN32_WINNT=0x0401 %top%uncap.c /link user32.lib
