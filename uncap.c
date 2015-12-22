@@ -143,6 +143,7 @@ struct state {
     HHOOK hook;              /**< Handle to keyboard hook procedure. */
     int console;             /**< Whether console mode is enabled. */
     int debug;               /**< Whether verbose mode is enabled. */
+    FILE *file;              /**< File to write verbose logs to. */
     char error[MAX_ERR_LEN]; /**< Error message for failed operation. */
 } my;
 
@@ -165,6 +166,16 @@ int error(const char *format, ...)
     return EXIT_FAILURE;
 }
 
+
+/**
+Log details of a key stroke to a specified file.
+
+@param file File to write to. (type: FILE *)
+*/
+#define logKeyTo(file) \
+            fprintf(file, "%-10s %-3s %-3s %-3s %-3s %3lu %3lu (%s)\n", \
+                    wParamStr, extStr, injStr, altStr, upStr, \
+                    p->scanCode, p->vkCode, vkStr)
 
 /**
  Log details of a key stroke.
@@ -222,10 +233,15 @@ void logKey(WPARAM wParam, LPARAM lParam)
     strcpy(altStr, p->flags & LLKHF_ALTDOWN ? "ALT" : "-");
     strcpy(upStr, p->flags & LLKHF_UP ? "UP" : "-");
 
-    /* Log details of the key. */
-    fprintf(stderr, "%-10s %-3s %-3s %-3s %-3s %3lu %3lu (%s)\n",
-            wParamStr, extStr, injStr, altStr, upStr, p->scanCode,
-            p->vkCode, vkStr);
+    /* Log key to standard error stream if verbose mode is enabled. */
+    if (my.debug)
+        logKeyTo(stderr);
+
+    /* Log key to user specified file if file logging is enabled. */
+    if (my.file != NULL)
+        logKeyTo(my.file);
+
+    fflush(NULL);
 }
 
 
@@ -246,8 +262,9 @@ LRESULT CALLBACK keyboardHook(int nCode, WPARAM wParam, LPARAM lParam)
     WORD keyCode = (WORD) p->vkCode;
     WORD mapCode = my.keymap[keyCode];
 
-    if (my.debug)
+    if (my.debug || my.file) {
         logKey(wParam, lParam);
+    }
 
     if (mapCode == 0) {
         /* If key pressed is unmapped, disable the key press. */
@@ -291,7 +308,7 @@ enum action kill(void)
     PROCESSENTRY32 entry;
     HANDLE snapshotHandle;
     int failure = 0;
-    
+
     /* Take a snapshot of all processes running on the system. */
     snapshotHandle = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
     if (snapshotHandle == NULL) {
@@ -369,7 +386,7 @@ Show usage and help details of this program.
 void showHelp(void)
 {
     const char *usage =
-"Usage: %s [-k] [-c] [-d] [-h] [-v] [[MAP_KEY:TO_KEY] ...]\n\n";
+"Usage: %s [-k] [-c] [-d] [-f FILE] [-h] [-v] [[MAP_KEY:TO_KEY] ...]\n\n";
 
     const char *summary =
 "Map Caps Lock key to Escape key, or any key to any key.\n\n";
@@ -390,15 +407,16 @@ void showHelp(void)
 
     const char *details =
 "Options:\n"
-"  -k, --kill     Kill other instances of uncap.\n"
-"  -c, --console  Run silently in console.\n"
-"  -d, --debug    Run verbosely in console.\n"
-"  -h, --help     Show this help and exit.\n"
-"  -v, --version  Show version and exit.\n\n"
-                           
-"Arguments:\n"             
-"  MAP_KEY        Virtual-key code of key to map.\n"
-"  TO_KEY         Virtual-key code of key to map to.\n\n"
+"  -k, --kill       Kill other instances of uncap.\n"
+"  -c, --console    Run silently in console.\n"
+"  -d, --debug      Run verbosely in console.\n"
+"  -f, --file FILE  Write verbose logs to file.\n"
+"  -h, --help       Show this help and exit.\n"
+"  -v, --version    Show version and exit.\n\n"
+
+"Arguments:\n"
+"  MAP_KEY          Virtual-key code of key to map.\n"
+"  TO_KEY           Virtual-key code of key to map to.\n\n"
 
 "Report bugs to " BUGSINBOX ".\n";
 
@@ -495,6 +513,10 @@ enum action parseArguments(int argc, const char **argv)
 
     my.keymap[VK_CAPITAL] = VK_ESCAPE;
 
+    my.console = 0;
+    my.debug = 0;
+    my.file = NULL;
+
     /* Parse command line options. */
     i = 1;
     while (i < argc) {
@@ -510,9 +532,21 @@ enum action parseArguments(int argc, const char **argv)
             return EXIT;
         } else if (streq(arg, "-c") || streq(arg, "--console")) {
             my.console = 1;
+            ++i;
         } else if (streq(arg, "-d") || streq(arg, "--debug")) {
             my.debug = 1;
-            my.console = 1;
+            ++i;
+        } else if (streq(arg, "-f") || streq(arg, "--file")) {
+            if (i == argc - 1) {
+                sprintf(my.error, "Option '%s' must be followed by "
+                                  "file path", arg);
+                return FAIL;
+            }
+            arg = argv[++i];
+            if ((my.file = fopen(arg, "a")) == NULL) {
+                sprintf(my.error, "Cannot open %s.", arg);
+                return FAIL;
+            }
             ++i;
         } else if (streq(arg, "-k") || streq(arg, "--kill")) {
             return kill();
@@ -577,7 +611,7 @@ int main(int argc, char **argv)
         return EXIT_SUCCESS;
 
     /* Set visibility of console. */
-    if (!my.console) {
+    if (!my.console && !my.debug) {
         HWND h = FindWindow("ConsoleWindowClass", NULL);
         if (h != NULL)
             ShowWindow(h, SW_HIDE);
@@ -585,7 +619,7 @@ int main(int argc, char **argv)
             error("Cannot find console window; error %lu.", GetLastError());
     }
 
-    /* Install hook to monitor low-level keyboard input events. */ 
+    /* Install hook to monitor low-level keyboard input events. */
     my.hook = SetWindowsHookEx(WH_KEYBOARD_LL, keyboardHook, NULL, 0);
     if (my.hook == NULL)
         return error("Cannot install hook; error %lu.", GetLastError());

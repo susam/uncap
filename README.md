@@ -41,7 +41,7 @@ The following list briefly describes some of the features of Uncap.
      Windows system.
   4. Disable key mappings easily by stopping Uncap.
   5. It is a single-file executable. It is very lightweight. The
-     executable is only about 60 KB in size. It occupies about 1 MB or
+     executable is only about 72 KB in size. It occupies about 2 MB or
      less of memory, and negligible CPU while running.
 
 There are several other methods and tools available on Windows to map
@@ -189,7 +189,17 @@ details are illustrated in the list of examples below.
       The debug output contains one line of output with details about
       every press of a key or release of a key.
 
-  13. See the complete usage details along with options supported.
+  13. To log the keystroke details to a file, use the `-f` or `--file`
+      option.
+
+        uncap -f C:\keys.txt
+
+      With this option alone, Uncap runs in background and logs the
+      keystroke details to the specified file. This option may be
+      combined with `-c` or `-d` to run Uncap in a console or print
+      debug output on the console, respectively.
+
+  14. See the complete usage details along with options supported.
 
         uncap -h
 
