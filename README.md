@@ -402,16 +402,15 @@ Here is a list of useful links about this project.
 
 License
 -------
-This is free software. You are permitted to redistribute and use it in
-source and binary forms, with or without modification, under the terms
-of the Simplified BSD License. See the [LICENSE.md][] file for the
-complete license.
+This is free software. You are permitted to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of it, under the
+terms of the MIT License. See [LICENSE.md][1] for the complete license.
 
 This software is provided WITHOUT ANY WARRANTY; without even the implied
-warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-[LICENSE.md][] file for the complete disclaimer.
+warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See
+[LICENSE.md][1] for the complete disclaimer.
 
-[LICENSE.md]: LICENSE.md
+[1]: LICENSE.md
 
 
 Contact
