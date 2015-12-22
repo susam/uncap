@@ -5,7 +5,7 @@ Map Caps Lock key to Escape key, or any to any key, on Windows systems.
 [![Download][SHIELD]][DOWNLOAD]
 
 [SHIELD]: https://img.shields.io/badge/download-uncap.exe-brightgreen.svg
-[DOWNLOAD]: https://github.com/susam/uncap/releases/download/0.1.0/uncap.exe
+[DOWNLOAD]: https://github.com/susam/uncap/releases/download/0.2.0/uncap.exe
 
 
 Contents

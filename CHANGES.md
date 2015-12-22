@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.2.0 (2015-12-22)
+------------------
+- NEW: Write verbose logs to file with `-f` or `--file` option.
+- MOD: Switch from BSD 2-Clause License to MIT License
+
 0.1.0 (2015-09-13)
 ------------------
 - NEW: Map Caps Lock key to Escape key by default.

@@ -36,7 +36,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 /** Version of the program. */
-#define VERSION   "0.2.0-DEV"
+#define VERSION   "0.2.0"
 
 /** Author of the program. */
 #define AUTHOR    "Susam Pal"
