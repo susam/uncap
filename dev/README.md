@@ -81,9 +81,10 @@ version. These tasks should be performed with the project's top-level
 directory as the current directory.
 
   - Update copyright notice in LICENSE.md.
+  - Update copyright notice in uncap.c.
   - Update `COPYRIGHT` in uncap.c.
   - Update `VERSION` in uncap.c.
-  - Update version number in `DOWNLOAD` url in README.md.
+  - Update version in `DOWNLOAD` URL in README.md.
   - Update `PROJECT_NUMBER` in Doxyfile.
   - Update CHANGES.md.
   - Build Uncap.
