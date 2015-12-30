@@ -70,5 +70,38 @@ this project and then enter the following command.
 
     doxygen
 
-The documentation can be found at html\index.html relative to the
-current directory.
+The generated documentation can be found at html\index.html relative to
+the current directory.
+
+
+Release
+-------
+The following tasks need to be performed for every release of a new
+version. These tasks should be performed with the project's top-level
+directory as the current directory.
+
+  - Update copyright notice in LICENSE.md.
+  - Update `COPYRIGHT` in uncap.c.
+  - Update `VERSION` in uncap.c.
+  - Update version number in `DOWNLOAD` url in README.md.
+  - Update `PROJECT_NUMBER` in Doxyfile.
+  - Update CHANGES.md.
+  - Build Uncap.
+
+        rd /s /q html
+        doxygen
+        del uncap.exe uncap.obj uncap.sha1
+        dev\vs2005build
+        sha1sum uncap.exe > uncap.sha1
+
+  - Run `uncap -v` and ensure the version and copyright notice are okay.
+  - Tag the release.
+
+        git tag -a <VERSION> -m "Uncap <VERSION>"
+        git push <VERSION>
+
+  - Upload uncap.exe and uncap.sha1 to GitHub release page.
+  - Download uncap.exe and uncap.sha1 from GitHub release page and
+    verify checksum.
+
+        sha1sum -c uncap.sha1
