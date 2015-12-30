@@ -98,7 +98,7 @@ directory as the current directory.
   - Tag the release.
 
         git tag -a <VERSION> -m "Uncap <VERSION>"
-        git push <VERSION>
+        git push origin <VERSION>
 
   - Upload uncap.exe and uncap.sha1 to GitHub release page.
   - Download uncap.exe and uncap.sha1 from GitHub release page and
