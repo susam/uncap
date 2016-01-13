@@ -36,19 +36,19 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 /** Version of the program. */
-#define VERSION   "0.2.0"
+#define VERSION "0.2.1-DEV"
 
 /** Author of the program. */
-#define AUTHOR    "Susam Pal"
+#define AUTHOR "Susam Pal"
 
 /** Copyright notice. */
-#define COPYRIGHT "Copyright (c) 2015 Susam Pal"
+#define COPYRIGHT "Copyright (c) 2015-2016 " AUTHOR
 
 /** URL to a copy of the license. */
-#define LICENSE   "<http://susam.in/licenses/mit/>"
+#define LICENSE_URL "<http://susam.in/licenses/mit/>"
 
 /** URL to report issues to. */
-#define BUGSINBOX "<http://github.com/susam/uncap/issues>"
+#define SUPPORT_URL "<https://github.com/susam/uncap/issues>"
 
 /** Maximum length of command line argument that is read. */
 #define MAX_ARG_LEN 16
@@ -386,7 +386,7 @@ Show usage and help details of this program.
 void showHelp(void)
 {
     const char *usage =
-"Usage: %s [-k] [-c] [-d] [-f FILE] [-h] [-v] [[MAP_KEY:TO_KEY] ...]\n\n";
+"Usage: %s [-k] [-c] [-d] [-f FILE] [-h] [-v] [[MAP_KEY:TO_KEY]...]\n\n";
 
     const char *summary =
 "Map Caps Lock key to Escape key, or any key to any key.\n\n";
@@ -418,7 +418,7 @@ void showHelp(void)
 "  MAP_KEY          Virtual-key code of key to map.\n"
 "  TO_KEY           Virtual-key code of key to map to.\n\n"
 
-"Report bugs to " BUGSINBOX ".\n";
+"Report bugs to " SUPPORT_URL ".\n";
 
     printf(usage, my.name);
     printf(summary);
@@ -433,18 +433,23 @@ Show version and copyright details of this program.
 */
 void showVersion(void)
 {
+    char name[MAX_ARG_LEN];
+
     const char *s =
     "%s " VERSION "\n"
     COPYRIGHT "\n\n"
 
-    "This is free software. You are permitted to use, copy, modify, merge,\n"
-    "publish, distribute, sublicense, and/or sell copies of it, under the\n"
-    "terms of the MIT License. See " LICENSE " for the\n"
-    "complete license.\n\n"
+    "This is free and open source software. You can use, copy, modify,\n"
+    "merge, publish, distribute, sublicense, and/or sell copies of it,\n"
+    "under the terms of the MIT License. You may obtain a copy of the\n"
+    "MIT License at " LICENSE_URL ".\n\n"
 
-    "Written by " AUTHOR ".\n";
+    "This software is provided \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\n"
+    "express or implied. See the MIT License for details.\n";
 
-    printf(s, my.name);
+    strcpy(name, my.name);
+    name[0] = (char) toupper(name[0]);
+    printf(s, name);
 }
 
 
