@@ -89,9 +89,10 @@ directory as the current directory.
   - Update CHANGES.md.
   - Build Uncap.
 
-        rd /s /q html
+        dev\clean.cmd
         doxygen
-        del uncap.exe uncap.obj uncap.sha1
+        dev\mingwbuild.cmd
+        dev\clean.cmd
         dev\vs2005build
         sha1sum uncap.exe > uncap.sha1
 

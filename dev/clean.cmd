@@ -1,3 +1,4 @@
+@echo off
 setlocal
 
 rem Top level directory of the project.

@@ -1,10 +1,14 @@
 Changelog
 =========
 
+0.2.1 (2015-01-15)
+------------------
+- MOD: Minor changes in the help and version texts.
+
 0.2.0 (2015-12-22)
 ------------------
 - NEW: Write verbose logs to file with `-f` or `--file` option.
-- MOD: Switch from BSD 2-Clause License to MIT License
+- MOD: Switch from BSD 2-Clause License to MIT License.
 
 0.1.0 (2015-09-13)
 ------------------

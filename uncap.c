@@ -6,7 +6,7 @@ Map Caps Lock key to Escape key, or any key to any key.
 
 The MIT License (MIT)
 ---------------------
-Copyright (c) 2015 Susam Pal
+Copyright (c) 2015-2016 Susam Pal
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -36,7 +36,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 /** Version of the program. */
-#define VERSION "0.2.1-DEV"
+#define VERSION "0.2.1"
 
 /** Author of the program. */
 #define AUTHOR "Susam Pal"

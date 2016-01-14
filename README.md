@@ -5,7 +5,7 @@ Map Caps Lock key to Escape key, or any to any key, on Windows systems.
 [![Download][SHIELD]][DOWNLOAD]
 
 [SHIELD]: https://img.shields.io/badge/download-uncap.exe-brightgreen.svg
-[DOWNLOAD]: https://github.com/susam/uncap/releases/download/0.2.0/uncap.exe
+[DOWNLOAD]: https://github.com/susam/uncap/releases/download/0.2.1/uncap.exe
 
 
 Contents
@@ -22,7 +22,7 @@ Contents
   * [Mac OS X: Seil](#mac-os-x-seil)
 * [Resources](#resources)
 * [License](#license)
-* [Contact](#contact)
+* [Support](#support)
 
 
 Features
@@ -423,7 +423,7 @@ warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See
 [1]: LICENSE.md
 
 
-Contact
+Support
 -------
 To report bugs, suggest improvements, or ask questions, please visit
 <https://github.com/susam/uncap/issues>.
