@@ -412,15 +412,14 @@ Here is a list of useful links about this project.
 
 License
 -------
-This is free software. You are permitted to use, copy, modify, merge,
-publish, distribute, sublicense, and/or sell copies of it, under the
-terms of the MIT License. See [LICENSE.md][1] for the complete license.
+This is free and open source software. You can use, copy, modify,
+merge, publish, distribute, sublicense, and/or sell copies of it,
+under the terms of the MIT License. See [LICENSE.md][L] for details.
 
-This software is provided WITHOUT ANY WARRANTY; without even the implied
-warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See
-[LICENSE.md][1] for the complete disclaimer.
+This software is provided "AS IS", WITHOUT WARRANTY OF ANY KIND,
+express or implied. See [LICENSE.md][L] for details.
 
-[1]: LICENSE.md
+[L]: LICENSE.md
 
 
 Support
