@@ -36,7 +36,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 /** Version of the program. */
-#define VERSION "0.2.1"
+#define VERSION "0.2.2"
 
 /** Author of the program. */
 #define AUTHOR "Susam Pal"
@@ -441,7 +441,7 @@ void showVersion(void)
 
     "This is free and open source software. You can use, copy, modify,\n"
     "merge, publish, distribute, sublicense, and/or sell copies of it,\n"
-    "under the terms of the MIT License. You may obtain a copy of the\n"
+    "under the terms of the MIT License. You can obtain a copy of the\n"
     "MIT License at " LICENSE_URL ".\n\n"
 
     "This software is provided \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\n"
@@ -468,7 +468,7 @@ void qtpi(void)
          6, 13, 46, 13, 6, 52, 7, 48, 6, 13,
         62, 5, 62, 13,  6, 48,  7, 48, 6, 13,
         18, 1, 70, 13,  6, 48,  7, 48, 6, 13,
-        126, 13, 6, 48, 7, 52, 6, 13, 38, 2,
+        126, 13, 6, 48, 7, 52, 6, 13,  38, 2,
          38, 13, 6,  52, 7,  60, 6,  17, 94,
            17, 6,  60, 7,  72, 6,  17, 22,
               3, 18,  17, 6, 72, 7, 84,
@@ -543,13 +543,13 @@ enum action parseArguments(int argc, const char **argv)
             ++i;
         } else if (streq(arg, "-f") || streq(arg, "--file")) {
             if (i == argc - 1) {
-                sprintf(my.error, "Option '%s' must be followed by "
-                                  "file path", arg);
+                sprintf(my.error, "Option '%.*s' must be followed by "
+                                  "file path", MAX_ARG_LEN, arg);
                 return FAIL;
             }
             arg = argv[++i];
             if ((my.file = fopen(arg, "a")) == NULL) {
-                sprintf(my.error, "Cannot open %s.", arg);
+                sprintf(my.error, "Cannot open %.*s.", MAX_ARG_LEN, arg);
                 return FAIL;
             }
             ++i;
@@ -574,7 +574,8 @@ enum action parseArguments(int argc, const char **argv)
         unsigned long int toKey;
 
         if ((colon = strchr(arg, ':')) == NULL) {
-            sprintf(my.error, "Colon is missing from argument '%s'.", arg);
+            sprintf(my.error, "Colon is missing from argument '%.*s'.",
+                    MAX_ARG_LEN, arg);
             return FAIL;
         }
 
@@ -582,7 +583,8 @@ enum action parseArguments(int argc, const char **argv)
         toKey = strtoul(colon + 1, NULL, 0);
 
         if (mapKey < 1 || mapKey > 254 || toKey > 254) {
-            sprintf(my.error, "Invalid key code in argument '%s'.", arg);
+            sprintf(my.error, "Invalid key code in argument '%.*s'.",
+                    MAX_ARG_LEN, arg);
             return FAIL;
         }
 

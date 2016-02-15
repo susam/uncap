@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.2.2 (2015-02-15)
+------------------
+- FIX: Possible buffer overflows while handling command line arguments.
+
 0.2.1 (2015-01-15)
 ------------------
 - MOD: Minor changes in the help and version texts.

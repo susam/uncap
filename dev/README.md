@@ -7,25 +7,13 @@ build this project using MinGW too.
 Here are the version details of both development environments that have
 been found to build this project successfully.
 
-  1. Microsoft (R) 32-bit C/C++ Optimizing Compiler Version
+  1. gcc 4.8.1 available with MinGW 0.6.2 on Windows 7.
+  2. Microsoft (R) 32-bit C/C++ Optimizing Compiler Version
      14.00.50727.762 for 80x86 (cl.exe) available with
      Microsoft Visual Studio 2005 Version 8.0.50727.4039 on Windows 7.
-  2. gcc 4.8.1 available with MinGW 0.6.2 on Windows 7.
 
 Build scripts are provided in this directory for both development
 environments.
-
-
-Build with Microsoft Visual Studio 2005
----------------------------------------
-Microsoft Visual Studio 2005 is proprietary software, so it needs to be
-purchased and installed.
-
-Once installed, run `vs2005build.cmd` available in this directory to
-build the project with Microsoft Visual Studio 2005.
-
-An executable file named `uncap.exe` is generated in the current
-directory if the build succeeds.
 
 
 Build with MinGW
@@ -41,7 +29,9 @@ install it.
 
   3. Add C:\MinGW\bin to the Windows PATH environment variable.
 
-  4. Enter the following command to install the compiler.
+  4. When MinGW Installation Manager appears, close it.
+
+  5. Enter the following command to install the compiler.
 
         mingw-get install mingw32-base
 
@@ -50,6 +40,23 @@ build the project with gcc.
 
 An executable file named `uncap.exe` is generated in the current
 directory if the build succeeds.
+
+Version 0.2.2 of Uncap was built using MinGW.
+
+
+Build with Microsoft Visual Studio 2005
+---------------------------------------
+Microsoft Visual Studio 2005 is proprietary software, so it needs to be
+purchased and installed.
+
+Once installed, run `vs2005build.cmd` available in this directory to
+build the project with Microsoft Visual Studio 2005.
+
+An executable file named `uncap.exe` is generated in the current
+directory if the build succeeds.
+
+Versions 0.1.0, 0.2.0 and 0.2.1 of Uncap were built using Microsoft
+Visual Studio 2005.
 
 
 Inline documentation
@@ -62,8 +69,8 @@ understanding the source code.
 Download Doxygen from
 <http://www.stack.nl/~dimitri/doxygen/download.html> and install it. It
 is sufficient to download the doxygen binary in a zip, unzip it and copy
-doxygen.exe to a directory that is specified in the Windows PATH
-environment variable.
+doxygen.exe and libclang.dll to a directory that is specified in the
+Windows PATH environment variable.
 
 Once installed, change current directory to the top level directory of
 this project and then enter the following command.
@@ -92,8 +99,6 @@ directory as the current directory.
         dev\clean.cmd
         doxygen
         dev\mingwbuild.cmd
-        dev\clean.cmd
-        dev\vs2005build
         sha1sum uncap.exe > uncap.sha1
 
   - Run `uncap -v` and ensure the version and copyright notice are okay.

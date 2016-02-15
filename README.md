@@ -5,7 +5,7 @@ Map Caps Lock key to Escape key, or any to any key, on Windows systems.
 [![Download][SHIELD]][DOWNLOAD]
 
 [SHIELD]: https://img.shields.io/badge/download-uncap.exe-brightgreen.svg
-[DOWNLOAD]: https://github.com/susam/uncap/releases/download/0.2.1/uncap.exe
+[DOWNLOAD]: https://github.com/susam/uncap/releases/download/0.2.2/uncap.exe
 
 
 Contents
@@ -41,7 +41,7 @@ The following list briefly describes some of the features of Uncap.
      Windows system.
   4. Disable key mappings easily by stopping Uncap.
   5. It is a single-file executable. It is very lightweight. The
-     executable is only about 72 KB in size. It occupies about 2 MB or
+     executable is only about 82 KB in size. It occupies about 1 MB or
      less of memory, and negligible CPU while running.
 
 There are several other methods and tools available on Windows to map
