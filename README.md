@@ -4,6 +4,9 @@ Map Caps Lock key to Escape key, or any to any key, on Windows systems.
 
 [![Download][SHIELD]][DOWNLOAD]
 
+Apart from documenting how Uncap works on Windows, this README contains
+detailed documentation about how to remap keys on Linux and Mac as well.
+
 [SHIELD]: https://img.shields.io/badge/download-uncap.exe-brightgreen.svg
 [DOWNLOAD]: https://github.com/susam/uncap/releases/download/0.2.2/uncap.exe
 
@@ -30,20 +33,20 @@ Features
 --------
 The following list briefly describes some of the features of Uncap.
 
-  1. Map Caps Lock key to Escape key on a new Windows system with almost
-     no effort. Just download and double-click. This is the primary
-     reason why Uncap was written. This tool was written for users of vi
-     editor who like to map their Caps Lock key to Escape key for
-     convenience.
-  2. Map any key to any key, multiple keys to other keys, or disable
-     keys using command line arguments. No additional file or script is
-     required.
-  3. Enable, disable or modify key mappings without having to reboot the
-     Windows system.
-  4. Disable key mappings easily by stopping Uncap.
-  5. It is a single-file executable. It is very lightweight. The
-     executable is only about 82 KB in size. It occupies about 1 MB or
-     less of memory, and negligible CPU while running.
+ 1. Map Caps Lock key to Escape key on a new Windows system with almost
+    no effort. Just download and double-click. This is the primary
+    reason why Uncap was written. This tool was written for users of vi
+    editor who like to map their Caps Lock key to Escape key for
+    convenience.
+ 2. Map any key to any key, multiple keys to other keys, or disable
+    keys using command line arguments. No additional file or script is
+    required.
+ 3. Enable, disable or modify key mappings without having to reboot the
+    Windows system.
+ 4. Disable key mappings easily by stopping Uncap.
+ 5. It is a single-file executable. It is very lightweight. The
+    executable is only about 82 KB in size. It occupies about 1 MB or
+    less of memory, and negligible CPU while running.
 
 There are several other methods and tools available on Windows to map
 one key to another. But none of them seem to have all five features
@@ -69,21 +72,21 @@ Escape key, however to do so, Uncap must be run with arguments either
 from Command Prompt or from Windows Run dialog box. The following steps
 show how uncap.exe may be used to map Caps Lock key to Left Control key.
 
-  1. Copy uncap.exe to a directory specified in the Windows PATH
-     variable. C:\Windows is a very convenient location to copy this
-     file to.
+ 1. Copy uncap.exe to a directory specified in the Windows PATH
+    variable. C:\Windows is a very convenient location to copy this
+    file to.
 
-  2. Launch Windows Run dialog box by pressing `Windows Logo Key` + `R`.
+ 2. Launch Windows Run dialog box by pressing `Windows Logo Key` + `R`.
 
-  3. Enter the following command.
+ 3. Enter the following command.
 
         uncap 0x14:0xa2
 
-  4. Press OK button. This would launch Uncap. No output window would be
-     displayed. Uncap would run in background. Whenever Caps Lock key is
-     pressed now, Uncap would translate it to Left Control key.
+ 4. Press OK button. This would launch Uncap. No output window would be
+    displayed. Uncap would run in background. Whenever Caps Lock key is
+    pressed now, Uncap would translate it to Left Control key.
 
-  5. To terminate Uncap, run the following command.
+ 5. To terminate Uncap, run the following command.
 
         uncap -k
 
@@ -109,98 +112,98 @@ The virtual-key code may be specified either as hexadecimal integer as
 mentioned in the above URL or its equivalent decimal notation. These
 details are illustrated in the list of examples below.
 
-  1. Map Caps Lock key to Escape key.
+ 1. Map Caps Lock key to Escape key.
 
         uncap
 
-  2. Swap Caps Lock key with Escape key.
+ 2. Swap Caps Lock key with Escape key.
 
         uncap 0x1b:0x14
 
-     Caps Lock key is already mapped to Escape key by default. The above
-     command maps Escape key to Caps Lock key, thus effectively swapping
-     both keys.
+    Caps Lock key is already mapped to Escape key by default. The above
+    command maps Escape key to Caps Lock key, thus effectively swapping
+    both keys.
 
-  3. The hexadecimal integer is case-insensitive, so the following
-     command is equivalent to the previous command.
+ 3. The hexadecimal integer is case-insensitive, so the following
+    command is equivalent to the previous command.
 
         uncap 0x1B:0x14
 
-  4. The virtual-key codes may be specified in decimal notation, so the
-     following command is equivalent to the previous command.
+ 4. The virtual-key codes may be specified in decimal notation, so the
+    following command is equivalent to the previous command.
 
-         uncap 27:20
+        uncap 27:20
 
-  5. Map Caps Lock key to Left Control key.
+ 5. Map Caps Lock key to Left Control key.
 
         uncap 0x14:0xa2
 
-  6. Swap Caps Lock key and Left Control key.
+ 6. Swap Caps Lock key and Left Control key.
 
         uncap 0x14:0xa2 0xa2:0x14
 
-     This example shows that it is possible to specify more than one
-     argument to map multiple keys to other keys.
+    This example shows that it is possible to specify more than one
+    argument to map multiple keys to other keys.
 
-  7. Here is another example that maps multiple keys to other keys. The
-     following command maps Caps Lock key to Left Control key, Left
-     Control key to Escape key and Escape key to Caps Lock key.
+ 7. Here is another example that maps multiple keys to other keys. The
+    following command maps Caps Lock key to Left Control key, Left
+    Control key to Escape key and Escape key to Caps Lock key.
 
         uncap 0x14:0xa2 0xa2:0x1b 0x1b:0x14
 
-  8. If a key is mapped to itself, then no mapping occurs for it. This
-     may be used to override default behaviour of mapping Caps Lock key
-     to Escape key and leave it unmapped while mapping another key to
-     some key. Here is an example that unmaps Caps Lock key and maps F1
-     key to escape key.
+ 8. If a key is mapped to itself, then no mapping occurs for it. This
+    may be used to override default behaviour of mapping Caps Lock key
+    to Escape key and leave it unmapped while mapping another key to
+    some key. Here is an example that unmaps Caps Lock key and maps F1
+    key to escape key.
 
         uncap 0x14:0x14 0x70:0x1b
 
-     When a key is mapped to another key, and that key is pressed, Uncap
-     translates it to the key it is mapped to by synthesizing a new
-     keystroke and injecting it into the system. But when a key is
-     mapped to itself, and that key is pressed, it is ignored, thus no
-     translation or synthesis of a new keystroke occurs.
+    When a key is mapped to another key, and that key is pressed, Uncap
+    translates it to the key it is mapped to by synthesizing a new
+    keystroke and injecting it into the system. But when a key is
+    mapped to itself, and that key is pressed, it is ignored, thus no
+    translation or synthesis of a new keystroke occurs.
 
-  9. If a key is mapped to 0, then the key is disabled. Here is an
-     example that disables Caps Lock key completely.
+ 9. If a key is mapped to 0, then the key is disabled. Here is an
+    example that disables Caps Lock key completely.
 
         uncap 0x14:0
 
-  10. Uncap runs without displaying a console by default. To terminate
-      another instance of Uncap that may be running, use the `-k` or
-      `--kill` option.
+10. Uncap runs without displaying a console by default. To terminate
+    another instance of Uncap that may be running, use the `-k` or
+    `--kill` option.
 
         uncap -k
 
-      The above command kill all other instances of Uncap that are
-      running with or without a console.
+    The above command kill all other instances of Uncap that are
+    running with or without a console.
 
-  11. To run Uncap with a console, use the `-c` or `--console` option.
+11. To run Uncap with a console, use the `-c` or `--console` option.
 
         uncap -c
 
-      When Uncap is running in a console like this, it may be terminated
-      by pressing `Ctrl` + `C`.
+    When Uncap is running in a console like this, it may be terminated
+    by pressing `Ctrl` + `C`.
 
-  12. To run Uncap in debug mode, use the `-d` or `--debug` option.
+12. To run Uncap in debug mode, use the `-d` or `--debug` option.
 
         uncap -d
 
-      The debug output contains one line of output with details about
-      every press of a key or release of a key.
+    The debug output contains one line of output with details about
+    every press of a key or release of a key.
 
-  13. To log the keystroke details to a file, use the `-f` or `--file`
-      option.
+13. To log the keystroke details to a file, use the `-f` or `--file`
+    option.
 
         uncap -f C:\keys.txt
 
-      With this option alone, Uncap runs in background and logs the
-      keystroke details to the specified file. This option may be
-      combined with `-c` or `-d` to run Uncap in a console or print
-      debug output on the console, respectively.
+    With this option alone, Uncap runs in background and logs the
+    keystroke details to the specified file. This option may be
+    combined with `-c` or `-d` to run Uncap in a console or print
+    debug output on the console, respectively.
 
-  14. See the complete usage details along with options supported.
+14. See the complete usage details along with options supported.
 
         uncap -h
 
@@ -342,8 +345,8 @@ instead of `keysym`.
 The following two commands display the current details.
 
     xmodmap -pm -pke
-    
-The following command undoes the mapping. 
+
+The following command undoes the mapping.
 
     xmodmap -e "keycode 66 = Caps_Lock" -e "add Lock = Caps_Lock"
 
