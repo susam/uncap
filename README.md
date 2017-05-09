@@ -2,13 +2,16 @@ Uncap
 =====
 Map Caps Lock key to Escape key, or any to any key, on Windows systems.
 
-[![Download][SHIELD]][DOWNLOAD]
+[![Download][DOWNLOAD-BADGE]][DOWNLOAD]
+[![MIT License][LICENSE-BADGE]][L]
 
 Apart from documenting how Uncap works on Windows, this README contains
 detailed documentation about how to remap keys on Linux and Mac as well.
 
-[SHIELD]: https://img.shields.io/badge/download-uncap.exe-brightgreen.svg
+[DOWNLOAD-BADGE]: https://img.shields.io/badge/download-uncap.exe-brightgreen.svg
 [DOWNLOAD]: https://github.com/susam/uncap/releases/download/0.2.2/uncap.exe
+
+[LICENSE-BADGE]: https://img.shields.io/badge/license-MIT-blue.svg
 
 
 Contents
