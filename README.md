@@ -19,7 +19,8 @@ Contents
   * [Linux: setxkbmap](#linux-setxkbmap)
   * [Linux: xmodmap](#linux-xmodmap)
   * [Linux: loadkeys](#linux-loadkeys)
-  * [Mac OS X: Seil](#mac-os-x-seil)
+  * [Mac: System Preferences](#mac-system-preferences)
+  * [Mac: Seil](#mac-os-x-seil)
 * [Resources](#resources)
 * [License](#license)
 * [Support](#support)
@@ -64,7 +65,7 @@ whenever Caps Lock key is pressed, it is translated to the Escape key by
 Uncap.
 
 It is possible to override the default mapping of Caps Lock key to
-Escape key, however, to do so, Uncap must be run with arguments either
+Escape key, however to do so, Uncap must be run with arguments either
 from Command Prompt or from Windows Run dialog box. The following steps
 show how uncap.exe may be used to map Caps Lock key to Left Control key.
 
@@ -207,8 +208,7 @@ details are illustrated in the list of examples below.
 Alternatives
 ------------
 There are other tools and methods available to map one key to another on
-Windows, Linux and Mac OS X. This section describes a few such tools and
-methods.
+Windows, Linux and Mac. This section describes a few such tools and methods.
 
 ### Windows: Scancode Map registry value ###
 One way to map a key to another key in Windows without using any
@@ -384,17 +384,24 @@ The following command undoes the mapping.
 [514464]: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=514464
 [7746]: https://bugzilla.kernel.org/show_bug.cgi?id=7746
 
-### Mac OS X: Seil
-Mac OS X provides some limited way of mapping modifier keys at Apple
-Menu > System Preferences > Keyboard > Modifier Keys. However, the
-mapping options here are very limited. For example, it does not allow
-Caps Lock key to be mapped to Escape key. Therefore, in general, it
-becomes necessary to install additional software to map keys in Mac OS
-X.
+### Mac: System Preferences
+Since macOS Sierra Version 10.12.1, it is easy to map Caps Lock to Escape via
+*System Preferences*. Perform the following steps to do so.
 
-A popular tool for mapping one key to another on Mac OS X is [Seil][].
-Here is an article by my beautiful girlfriend and wife that describes
-how to map Caps Lock key to Escape key on Mac OS X using Seil:
+ 1. Go to the Apple menu > *System Preferences* > *Keyboard*.
+ 2. Click *Modifier Keys*.
+ 3. Set *Caps Lock Key* to *Escape*.
+ 4. Click *OK*.
+
+### Mac: Seil
+In OS X, the mapping options available via *System Preferences* are very
+limited. For example, it does not allow Caps Lock to be mapped to Escape.
+Therefore in general, it becomes necessary to install additional software to
+map keys in OS X.
+
+A popular tool for mapping one key to another on OS X is [Seil][].  Here is an
+article by my beautiful girlfriend and wife that describes how to map Caps Lock
+to Escape on OS X using Seil:
 <http://sunainapai.in/blog/map-caps-lock-to-escape-on-mac-os-x/>.
 
 [Seil]: https://pqrs.org/osx/karabiner/seil.html
