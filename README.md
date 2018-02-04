@@ -26,7 +26,7 @@ Contents
   * [Linux: xmodmap](#linux-xmodmap)
   * [Linux: loadkeys](#linux-loadkeys)
   * [Mac: System Preferences](#mac-system-preferences)
-  * [Mac: Seil](#mac-os-x-seil)
+  * [Mac: Seil](#mac-seil)
 * [Resources](#resources)
 * [License](#license)
 * [Support](#support)
