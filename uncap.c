@@ -624,6 +624,8 @@ int main(int argc, char **argv)
             ShowWindow(h, SW_HIDE);
         else
             error("Cannot find console window; error %lu.", GetLastError());
+            
+        FreeConsole();
     }
 
     /* Install hook to monitor low-level keyboard input events. */
