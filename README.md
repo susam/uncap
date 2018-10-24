@@ -405,13 +405,14 @@ limited. For example, it does not allow Caps Lock to be mapped to Escape.
 Therefore in general, it becomes necessary to install additional software to
 map keys in OS X.
 
-A popular tool for mapping one key to another on OS X is [Seil][].  Here is an
+Some popular tools for mapping one key to another on OS X are [Karabiner Elements][]
+(for macOS Sierra and newer) or [Seil][] (for older macOS versions.)  Here is an
 article by my beautiful girlfriend and wife that describes how to map Caps Lock
 to Escape on OS X using Seil:
 <http://sunainapai.in/blog/map-caps-lock-to-escape-on-mac-os-x/>.
 
 [Seil]: https://pqrs.org/osx/karabiner/seil.html
-
+[Karabiner Elements]: https://pqrs.org/osx/karabiner/
 
 Resources
 ---------
