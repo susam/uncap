@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.2.3 (UNRELEASED)
+------------------
+### Fixed
+- Console window is not hidden when Cmder is running.
+
 0.2.2 (2015-02-15)
 ------------------
 ### Fixed

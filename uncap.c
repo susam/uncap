@@ -36,7 +36,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 /** Version of the program. */
-#define VERSION "0.2.2"
+#define VERSION "0.2.3"
 
 /** Author of the program. */
 #define AUTHOR "Susam Pal"
@@ -619,13 +619,11 @@ int main(int argc, char **argv)
 
     /* Set visibility of console. */
     if (!my.console && !my.debug) {
-        HWND h = FindWindow("ConsoleWindowClass", NULL);
+        HWND h = GetConsoleWindow();
         if (h != NULL)
             ShowWindow(h, SW_HIDE);
         else
             error("Cannot find console window; error %lu.", GetLastError());
-            
-        FreeConsole();
     }
 
     /* Install hook to monitor low-level keyboard input events. */
