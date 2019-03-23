@@ -45,7 +45,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #define COPYRIGHT "Copyright (c) 2015-2019 " AUTHOR
 
 /** URL to a copy of the license. */
-#define LICENSE_URL "<http://susam.in/licenses/mit/>"
+#define LICENSE_URL "<https://susam.in/licenses/mit/>"
 
 /** URL to report issues to. */
 #define SUPPORT_URL "<https://github.com/susam/uncap/issues>"
