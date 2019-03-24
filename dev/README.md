@@ -113,8 +113,9 @@ directory as the current directory.
         git tag -a <VERSION> -m "Uncap <VERSION>"
         git push origin master <VERSION>
 
-  - Upload `uncap.exe` and `uncap.sha256` to GitHub release page.
-  - Download `uncap.exe` and `uncap.sha256` from GitHub release page and
-    verify checksum.
+  - Upload `uncap.exe` and `uncap.sha256.txt` to GitHub release page.
+  - Download `uncap.exe` and `uncap.sha256.txt` from GitHub release page
+    and verify the checksum with one of these commands:
 
-        sha1sum -c uncap.sha1
+        sha256sum -c uncap.sha256.txt
+        shasum -a 256 -c uncap.sha256.txt
