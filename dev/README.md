@@ -98,7 +98,7 @@ directory as the current directory.
         dev\clean.cmd
         doxygen
         dev\mingwbuild.cmd
-        sha1sum uncap.exe > uncap.sha1
+        dev\checksum
 
   - Run `uncap -v` and ensure the version and copyright notice are okay.
   - Tag the release.
@@ -106,8 +106,8 @@ directory as the current directory.
         git tag -a <VERSION> -m "Uncap <VERSION>"
         git push origin <VERSION>
 
-  - Upload uncap.exe and uncap.sha1 to GitHub release page.
-  - Download uncap.exe and uncap.sha1 from GitHub release page and
+  - Upload `uncap.exe` and `uncap.sha256` to GitHub release page.
+  - Download `uncap.exe` and `uncap.sha256` from GitHub release page and
     verify checksum.
 
         sha1sum -c uncap.sha1
