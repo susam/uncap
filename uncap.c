@@ -36,7 +36,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 /** Version of the program. */
-#define VERSION "0.2.3"
+#define VERSION "0.3.0"
 
 /** Author of the program. */
 #define AUTHOR "Susam Pal"
@@ -56,6 +56,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 /** Maximum allowed length of an error message. */
 #define MAX_ERR_LEN 256
 
+#ifndef LLKHF_LOWER_IL_INJECTED
+/** Workaround for missing definition in MinGW winuser.h. **/
+#define LLKHF_LOWER_IL_INJECTED 0x00000002
+#endif
 
 /**
 Check if two null-terminated byte strings are equal.
@@ -173,9 +177,12 @@ Log details of a key stroke to a specified file.
 @param file File to write to. (type: FILE *)
 */
 #define logKeyTo(file) \
-            fprintf(file, "%-10s %-3s %-3s %-3s %-3s %3lu %3lu (%s)\n", \
-                    wParamStr, extStr, injStr, altStr, upStr, \
-                    p->scanCode, p->vkCode, vkStr)
+            fprintf(file, "%-10s %3lu  " \
+                          "%-3s %-3s %-3s %-3s %-3s " \
+                          "%3lu %3lu (%s)\n", \
+                          wParamStr, p->flags, \
+                          extStr, lowStr, injStr, altStr, upStr, \
+                          p->scanCode, p->vkCode, vkStr)
 
 /**
  Log details of a key stroke.
@@ -191,6 +198,7 @@ void logKey(WPARAM wParam, LPARAM lParam)
     char wParamStr[16];
     char vkStr[16];
     char extStr[16];
+    char lowStr[16];
     char injStr[16];
     char altStr[16];
     char upStr[16];
@@ -229,6 +237,7 @@ void logKey(WPARAM wParam, LPARAM lParam)
 
     /* Translate each flag to string notation. */
     strcpy(extStr, p->flags & LLKHF_EXTENDED ? "EXT" : "-");
+    strcpy(lowStr, p->flags & LLKHF_LOWER_IL_INJECTED ? "LOW": "-");
     strcpy(injStr, p->flags & LLKHF_INJECTED ? "INJ" : "-");
     strcpy(altStr, p->flags & LLKHF_ALTDOWN ? "ALT" : "-");
     strcpy(upStr, p->flags & LLKHF_UP ? "UP" : "-");

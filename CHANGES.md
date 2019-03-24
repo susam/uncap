@@ -1,20 +1,27 @@
 Changelog
 =========
 
-0.2.3 (UNRELEASED)
+0.3.0 (UNRELEASED)
 ------------------
+### Added 
+- Show flags value as integer in the second column of debug output.
+- Show `LLKHF_LOWER_IL_INJECTED` flag as `LOW` in debug output.
+
 ### Fixed
 - Console window is not hidden when Cmder is running.
+
 
 0.2.2 (2015-02-15)
 ------------------
 ### Fixed
 - Possible buffer overflows while handling command line arguments.
 
+
 0.2.1 (2015-01-15)
 ------------------
 ### Changed
 - Minor changes in the help and version texts.
+
 
 0.2.0 (2015-12-22)
 ------------------
@@ -23,6 +30,7 @@ Changelog
 
 ### Changed
 - Switch from BSD 2-Clause License to MIT License.
+
 
 0.1.0 (2015-09-13)
 ------------------
