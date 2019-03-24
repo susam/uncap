@@ -9,8 +9,7 @@ Apart from documenting how Uncap works on Windows, this README contains
 detailed documentation about how to remap keys on Linux and Mac as well.
 
 [DOWNLOAD-BADGE]: https://img.shields.io/badge/download-uncap.exe-brightgreen.svg
-[DOWNLOAD]: https://github.com/susam/uncap/releases/download/0.2.2/uncap.exe
-
+[DOWNLOAD]: https://github.com/susam/uncap/releases/download/0.3.0/uncap.exe
 [LICENSE-BADGE]: https://img.shields.io/badge/license-MIT-blue.svg
 
 
@@ -48,8 +47,8 @@ The following list briefly describes some of the features of Uncap.
     Windows system.
  4. Disable key mappings easily by stopping Uncap.
  5. It is a single-file executable. It is very lightweight. The
-    executable is only about 82 KB in size. It occupies about 1 MB or
-    less of memory, and negligible CPU while running.
+    executable is only about 100 KB in size. It occupies less than 1 MB
+    of memory and negligible CPU while running.
 
 There are several other methods and tools available on Windows to map
 one key to another. But none of them seem to have all five features
@@ -75,8 +74,8 @@ Escape key, however to do so, Uncap must be run with arguments either
 from Command Prompt or from Windows Run dialog box. The following steps
 show how uncap.exe may be used to map Caps Lock key to Left Control key.
 
- 1. Copy uncap.exe to a directory specified in the Windows PATH
-    variable. C:\Windows is a very convenient location to copy this
+ 1. Copy `uncap.exe` to a directory specified in the Windows `PATH`
+    variable. `C:\Windows` is a very convenient location to copy this
     file to.
 
  2. Launch Windows Run dialog box by pressing `Windows Logo Key` + `R`.
@@ -179,7 +178,7 @@ details are illustrated in the list of examples below.
 
         uncap -k
 
-    The above command kill all other instances of Uncap that are
+    The above command kills all other instances of Uncap that are
     running with or without a console.
 
 11. To run Uncap with a console, use the `-c` or `--console` option.

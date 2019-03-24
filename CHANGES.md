@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.3.0 (UNRELEASED)
+0.3.0 (2019-03-24)
 ------------------
 ### Added 
 - Support mapping of injected keyboard events.

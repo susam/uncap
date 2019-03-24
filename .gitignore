@@ -1,6 +1,6 @@
 *.sw?
 *.exe
 *.obj
-*.sha1
+*.sha*
 html/
 latex/

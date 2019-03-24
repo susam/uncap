@@ -41,7 +41,7 @@ build the project with gcc.
 An executable file named `uncap.exe` is generated in the current
 directory if the build succeeds.
 
-Version 0.2.2 of Uncap was built using MinGW.
+Version 0.2.2 and later versions of Uncap was built using MinGW.
 
 
 Build with Microsoft Visual Studio 2005
@@ -86,25 +86,31 @@ The following tasks need to be performed for every release of a new
 version. These tasks should be performed with the project's top-level
 directory as the current directory.
 
-  - Update copyright notice in LICENSE.md.
-  - Update copyright notice in uncap.c.
-  - Update `COPYRIGHT` in uncap.c.
-  - Update `VERSION` in uncap.c.
-  - Update version in `DOWNLOAD` URL in README.md.
-  - Update `PROJECT_NUMBER` in Doxyfile.
-  - Update CHANGES.md.
+  - Update copyright notice in `LICENSE.md`.
+  - Update copyright notice in `uncap.c`.
+  - Update `COPYRIGHT` in `uncap.c`.
+  - Update `VERSION` in `uncap.c`.
+  - Update version in `DOWNLOAD` URL in `README.md`.
+  - Update `PROJECT_NUMBER` in `Doxyfile`.
+  - Update `CHANGES.md`.
   - Build Uncap.
 
         dev\clean.cmd
         doxygen
         dev\mingwbuild.cmd
-        dev\checksum
+        dev\checksum.cmd
 
   - Run `uncap -v` and ensure the version and copyright notice are okay.
+  - Commit any changes.
+
+        git status
+        git add .
+        git commit
+
   - Tag the release.
 
         git tag -a <VERSION> -m "Uncap <VERSION>"
-        git push origin <VERSION>
+        git push origin master <VERSION>
 
   - Upload `uncap.exe` and `uncap.sha256` to GitHub release page.
   - Download `uncap.exe` and `uncap.sha256` from GitHub release page and
