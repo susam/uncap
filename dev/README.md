@@ -22,8 +22,9 @@ This project may be built using MinGW as well. Here are the steps to
 install it.
 
   1. Download mingw-get-setup.exe from
-     <http://sourceforge.net/projects/mingw/>.
-     It is available at Files > Installer.
+     <https://osdn.net/projects/mingw/releases/>.
+     It is available at MinGW Installation Manager (mingw-get) >
+     MinGW-Get Version > mingw-get-setup.exe.
 
   2. Double click the downloaded file to run it.
 
@@ -33,7 +34,7 @@ install it.
 
   5. Enter the following command to install the compiler.
 
-        mingw-get install mingw32-base
+        mingw-get install gcc
 
 Once installed, run `mingwbuild.cmd` available in this directory to
 build the project with gcc.
@@ -41,7 +42,7 @@ build the project with gcc.
 An executable file named `uncap.exe` is generated in the current
 directory if the build succeeds.
 
-Version 0.2.2 and later versions of Uncap was built using MinGW.
+Version 0.2.2 and later versions of Uncap were built using MinGW.
 
 
 Build with Microsoft Visual Studio 2005
