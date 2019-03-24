@@ -9,7 +9,9 @@ Changelog
 - Show `LLKHF_LOWER_IL_INJECTED` flag as `LOW` in debug output.
 
 ### Fixed
-- Console window is not hidden when Cmder is running.
+- Issue that prevents Uncap console window from becoming hidden when
+  Cmder is running. With this release, Uncap console window disappears
+  as expected regardless of whether Cmder is runing or not.
 
 
 0.2.2 (2015-02-15)
