@@ -56,6 +56,9 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 /** Maximum allowed length of an error message. */
 #define MAX_ERR_LEN 256
 
+/** Magic number to identify keyboard input injected by Uncap. */
+#define UNCAP_INFO (WM_APP + 3195) /* 35963 */
+
 #ifndef LLKHF_LOWER_IL_INJECTED
 /** Workaround for missing definition in MinGW winuser.h. **/
 #define LLKHF_LOWER_IL_INJECTED 0x00000002
@@ -177,10 +180,10 @@ Log details of a key stroke to a specified file.
 @param file File to write to. (type: FILE *)
 */
 #define logKeyTo(file) \
-            fprintf(file, "%-10s %3d %3lu " \
+            fprintf(file, "%-10s %3d %5lu %3lu " \
                           "%-3s %-3s %-3s %-3s %-3s " \
                           "%3lu %3lu (%s)\n", \
-                          wParamStr, nCode, p->flags, \
+                          wParamStr, nCode, p->dwExtraInfo, p->flags, \
                           extStr, lowStr, injStr, altStr, upStr, \
                           p->scanCode, p->vkCode, vkStr)
 
@@ -278,18 +281,19 @@ LRESULT CALLBACK keyboardHook(int nCode, WPARAM wParam, LPARAM lParam)
     if (mapCode == 0) {
         /* If key pressed is unmapped, disable the key press. */
         return 1;
-    } else if (keyCode != mapCode && !(p->flags & LLKHF_INJECTED) &&
+    } else if (keyCode != mapCode && p->dwExtraInfo != UNCAP_INFO &&
                nCode >= 0) {
         /* If key is mapped, translate it to what it is mapped to. */
         INPUT inputs[1];
         PKEYBDINPUT ki = &inputs[0].ki;
 
         inputs[0].type = INPUT_KEYBOARD;
-        ki->dwExtraInfo = ki->time = ki->wScan = 0;
+        ki->time = ki->wScan = 0;
 
         ki->wVk = mapCode;
         ki->dwFlags = (wParam == WM_KEYUP || wParam == WM_SYSKEYUP)
                       ? KEYEVENTF_KEYUP : 0;
+        ki->dwExtraInfo = UNCAP_INFO;
 
         SendInput(1, inputs, sizeof *inputs);
         return 1;

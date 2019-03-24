@@ -4,8 +4,8 @@ Changelog
 0.3.0 (UNRELEASED)
 ------------------
 ### Added 
-- Show `nCode` value as integer in the second column of debug output.
-- Show `flags` value as integer in the third column of debug output.
+- Support mapping of injected keyboard events.
+- Show `dwExtraInfo`, `nCode`, and `flags` in debug output.
 - Show `LLKHF_LOWER_IL_INJECTED` flag as `LOW` in debug output.
 
 ### Fixed
