@@ -177,21 +177,21 @@ Log details of a key stroke to a specified file.
 @param file File to write to. (type: FILE *)
 */
 #define logKeyTo(file) \
-            fprintf(file, "%-10s %3lu  " \
+            fprintf(file, "%-10s %3d %3lu " \
                           "%-3s %-3s %-3s %-3s %-3s " \
                           "%3lu %3lu (%s)\n", \
-                          wParamStr, p->flags, \
+                          wParamStr, nCode, p->flags, \
                           extStr, lowStr, injStr, altStr, upStr, \
                           p->scanCode, p->vkCode, vkStr)
 
 /**
- Log details of a key stroke.
+Log details of a key stroke.
 
 @param nCode  Code used to determine how to process the message.
 @param wParam Identifier of the keyboard message.
 @param lParam Pointer to KBDLLHOOKSTRUCT structure.
 */
-void logKey(WPARAM wParam, LPARAM lParam)
+void logKey(int nCode, WPARAM wParam, LPARAM lParam)
 {
     const KBDLLHOOKSTRUCT *p = (KBDLLHOOKSTRUCT *) lParam;
 
@@ -272,7 +272,7 @@ LRESULT CALLBACK keyboardHook(int nCode, WPARAM wParam, LPARAM lParam)
     WORD mapCode = my.keymap[keyCode];
 
     if (my.debug || my.file) {
-        logKey(wParam, lParam);
+        logKey(nCode, wParam, lParam);
     }
 
     if (mapCode == 0) {
