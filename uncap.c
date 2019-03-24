@@ -149,7 +149,7 @@ struct state {
     int debug;               /**< Whether verbose mode is enabled. */
     FILE *file;              /**< File to write verbose logs to. */
     char error[MAX_ERR_LEN]; /**< Error message for failed operation. */
-} my;
+} my; /**< Global state of this program. */
 
 
 /**
