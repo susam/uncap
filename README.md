@@ -1,5 +1,6 @@
 Uncap
 =====
+
 Map Caps Lock key to Escape key, or any to any key, on Windows systems.
 
 [![Download][DOWNLOAD-BADGE]][DOWNLOAD]
@@ -15,11 +16,13 @@ detailed documentation about how to remap keys on Linux and Mac as well.
 
 Contents
 --------
+
 * [Features](#features)
-* [Getting started](#getting-started)
+* [Get Started](#get-started)
+* [Specify Custom Mapping](#specify-custom-mapping)
 * [Usage](#usage)
 * [Alternatives](#alternatives)
-  * [Windows: Scancode Map registry value](#windows-scancode-map-registry-value)
+  * [Windows: Scancode Map Registry Value](#windows-scancode-map-registry-value)
   * [Windows: AutoHotKey](#windows-autohotkey)
   * [Linux: setxkbmap](#linux-setxkbmap)
   * [Linux: xmodmap](#linux-xmodmap)
@@ -33,6 +36,7 @@ Contents
 
 Features
 --------
+
 The following list briefly describes some of the features of Uncap.
 
  1. Map Caps Lock key to Escape key on a new Windows system with almost
@@ -60,8 +64,9 @@ be written. Therefore, Uncap was written to support all five features
 described above.
 
 
-Getting started
----------------
+Get Started
+------------
+
 Uncap is a single-file executable: [`uncap.exe`][DOWNLOAD].
 
 The simplest way to run it is to download it and double-click it. No
@@ -69,10 +74,15 @@ output window is displayed. It runs in background. Once it is running,
 whenever Caps Lock key is pressed, it is translated to the Escape key by
 Uncap.
 
+
+Specify Custom Mapping
+----------------------
+
 It is possible to override the default mapping of Caps Lock key to
-Escape key, however to do so, Uncap must be run with arguments either
-from Command Prompt or from Windows Run dialog box. The following steps
-show how uncap.exe may be used to map Caps Lock key to Left Control key.
+Escape key by specifying a custom mapping, however to do so, Uncap must
+be run with arguments either from Command Prompt or from Windows Run
+dialog box. The following steps show how uncap.exe may be used to map
+Caps Lock key to Left Control key.
 
  1. Copy `uncap.exe` to a directory specified in the Windows `PATH`
     variable. `C:\Windows` is a very convenient location to copy this
@@ -103,6 +113,7 @@ The list of virtual-key codes for every key can be found at
 
 Usage
 -----
+
 When Uncap is run without any arguments, it maps Caps Lock key to Escape
 key. It may be run with arguments to map Caps Lock key to any key, any
 key to any key, or disable any key.
@@ -212,10 +223,13 @@ details are illustrated in the list of examples below.
 
 Alternatives
 ------------
+
 There are other tools and methods available to map one key to another on
 Windows, Linux and Mac. This section describes a few such tools and methods.
 
+
 ### Windows: Scancode Map registry value ###
+
 One way to map a key to another key in Windows without using any
 additional software is by editing the registry to add a value called
 "Scancode Map" in "HKLM\SYSTEM\CurrentControlSet\Control\Keyboard
@@ -260,7 +274,9 @@ required after every change made with SharpKeys.
 
 [SharpKeys]: https://sharpkeys.codeplex.com/
 
+
 ### Windows: AutoHotKey ###
+
 There is a fairly sophisticated scripting language for Windows called
 [AutoHotKey][] that can be used to map one key to another, among many
 other things.
@@ -287,7 +303,9 @@ to another key.
 
 [AutoHotKey]: http://www.autohotkey.com/
 
+
 ### Linux: setxkbmap ###
+
 On Linux, the `setxkbmap` command may be used to map one key to another
 key in the X Window System. For example, the following command maps Caps
 Lock key to Escape key.
@@ -315,7 +333,9 @@ The following command removes any key mapping option.
 
     setxkbmap -option
 
+
 ### Linux: xmodmap ###
+
 On Linux, there is another command called `xmodmap` that may be used to
 map one key to another in the X Window System. However this command is
 now considered obsolescent. It is also a little clumsy to use,
@@ -359,7 +379,9 @@ change the behaviour of the Escape key to function like Caps Lock. Using
 `keycode 66 = Caps_Lock` ensures that only the behaviour of Caps Lock
 key only is restored.
 
+
 ### Linux: loadkeys
+
 On Linux, the `loadKeys` command may be used to map one key to another
 in console. This section describes how to map Caps Lock key to Escape
 key. All commands in this section must be run as root or superuser.
@@ -389,7 +411,9 @@ The following command undoes the mapping.
 [514464]: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=514464
 [7746]: https://bugzilla.kernel.org/show_bug.cgi?id=7746
 
+
 ### Mac: System Preferences
+
 Since macOS Sierra Version 10.12.1, it is easy to map Caps Lock to Escape via
 *System Preferences*. Perform the following steps to do so.
 
@@ -398,7 +422,9 @@ Since macOS Sierra Version 10.12.1, it is easy to map Caps Lock to Escape via
  3. Set *Caps Lock Key* to *Escape*.
  4. Click *OK*.
 
+
 ### Mac: Seil
+
 In OS X, the mapping options available via *System Preferences* are very
 limited. For example, it does not allow Caps Lock to be mapped to Escape.
 Therefore in general, it becomes necessary to install additional software to
@@ -414,6 +440,7 @@ to Escape on OS X using Seil:
 
 Resources
 ---------
+
 Here is a list of useful links about this project.
 
 - [Download][DOWNLOAD]
@@ -424,6 +451,7 @@ Here is a list of useful links about this project.
 
 License
 -------
+
 This is free and open source software. You can use, copy, modify,
 merge, publish, distribute, sublicense, and/or sell copies of it,
 under the terms of the MIT License. See [LICENSE.md][L] for details.
@@ -436,5 +464,6 @@ express or implied. See [LICENSE.md][L] for details.
 
 Support
 -------
+
 To report bugs, suggest improvements, or ask questions, please visit
 <https://github.com/susam/uncap/issues>.
