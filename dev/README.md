@@ -66,11 +66,10 @@ form of special comment blocks meant to be processed by Doxygen that can
 generate documentation automatically. This may be useful in
 understanding the source code.
 
-Download Doxygen from
-<http://www.stack.nl/~dimitri/doxygen/download.html> and install it. It
-is sufficient to download the doxygen binary in a zip, unzip it and copy
-doxygen.exe and libclang.dll to a directory that is specified in the
-Windows PATH environment variable.
+Download Doxygen from <http://doxygen.nl/download.html> and install it.
+It is sufficient to download the doxygen binary in a zip, unzip it, and
+copy doxygen.exe and libclang.dll to a directory that is specified in
+the Windows `PATH` environment variable.
 
 Once installed, change current directory to the top level directory of
 this project and then enter the following command.
