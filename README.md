@@ -21,6 +21,7 @@ Contents
 * [Get Started](#get-started)
 * [Specify Custom Mapping](#specify-custom-mapping)
 * [Usage](#usage)
+* [Known Issue with Microsoft Edge on Windows 10](#known-issue-with-microsoft-edge-on-windows-10)
 * [Alternatives](#alternatives)
   * [Windows: Scancode Map Registry Value](#windows-scancode-map-registry-value)
   * [Windows: AutoHotKey](#windows-autohotkey)
@@ -219,6 +220,44 @@ details are illustrated in the list of examples below.
 14. See the complete usage details along with options supported.
 
         uncap -h
+
+
+Known Issue with Microsoft Edge on Windows 10
+---------------------------------------------
+
+When Uncap is downloaded using the Microsoft Edge web browser on Windows
+10, it sometimes fails to map keys.
+
+The following measures have found to be *unsuccessful* in resolving the
+issue:
+
+  - Right clicking `uncap.exe`, then selecting *Properties*, then
+    selecting *Unblock*, and then clicking *OK* does not resolve the
+    issue.
+
+  - Right clicking `uncap.exe`, then selecting *Properties*, then going
+    to *Security* tab, then clicking *Edit*, and then removing the
+    following two accounts does not resolve the issue:
+
+        Unknown Account(S-1-15-2-3624051433-2125758914-1423191267-1740899205-1073925389-3782572162-737981194)
+        Unknown Account(S-1-15-3-3624051433-2125758914-1423191267-1740899205-1073925389-3782572162-737981194)
+
+    These accounts are added automatically to files downloaded with
+    Microsoft Edge.
+
+The following workarounds have been found to resolve the issue
+successfully:
+
+  - Copy `uncap.exe` to a new file in the same directory. The new file
+    when run remaps keys successfully. Finally, delete the downloaded
+    `uncap.exe`, then rename the new file to `uncap.exe`, and use it
+    normally.
+
+  - Copy `uncap.exe` to some other directory. The new copied file when
+    run remaps keys successfully.
+
+This issue was observed with Microsoft Edge Microsoft Edge 44.17763.1.0
+on Windows 10 Pro.
 
 
 Alternatives
