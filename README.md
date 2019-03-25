@@ -19,7 +19,7 @@ Contents
 
 * [Features](#features)
 * [Get Started](#get-started)
-* [Specify Custom Mapping](#specify-custom-mapping)
+* [Custom Mapping](#custom-mapping)
 * [Usage](#usage)
 * [Known Issue with Microsoft Edge on Windows 10](#known-issue-with-microsoft-edge-on-windows-10)
 * [Alternatives](#alternatives)
@@ -76,8 +76,8 @@ whenever Caps Lock key is pressed, it is translated to the Escape key by
 Uncap.
 
 
-Specify Custom Mapping
-----------------------
+Custom Mapping
+--------------
 
 It is possible to override the default mapping of Caps Lock key to
 Escape key by specifying a custom mapping, however to do so, Uncap must
