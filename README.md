@@ -24,7 +24,7 @@ Contents
 * [Known Issue with Microsoft Edge on Windows 10](#known-issue-with-microsoft-edge-on-windows-10)
 * [Alternatives](#alternatives)
   * [Windows: Scancode Map Registry Value](#windows-scancode-map-registry-value)
-  * [Windows: AutoHotKey](#windows-autohotkey)
+  * [Windows: AutoHotkey](#windows-autohotkey)
   * [Linux: setxkbmap](#linux-setxkbmap)
   * [Linux: xmodmap](#linux-xmodmap)
   * [Linux: loadkeys](#linux-loadkeys)
@@ -60,7 +60,7 @@ one key to another. But none of them seem to have all five features
 enumerated above. For example, editing [Scancode
 Map](#windows-scancode-map-registry-value) registry value requires the
 Windows system to be rebooted after every change. On the other hand
-[AutoHotKey](#windows-autohotkey) requires an additional script file to
+[AutoHotkey](#windows-autohotkey) requires an additional script file to
 be written. Therefore, Uncap was written to support all five features
 described above.
 
@@ -314,33 +314,33 @@ required after every change made with SharpKeys.
 [SharpKeys]: https://sharpkeys.codeplex.com/
 
 
-### Windows: AutoHotKey ###
+### Windows: AutoHotkey ###
 
 There is a fairly sophisticated scripting language for Windows called
-[AutoHotKey][] that can be used to map one key to another, among many
+[AutoHotkey][] that can be used to map one key to another, among many
 other things.
 
-It is quite simple to map one key to another using AutoHotKey. For
-example, after installing AutoHotKey, to map Caps Lock key to Escape
-key, create an AutoHotKey script, i.e. a file with ahk as its extension,
+It is quite simple to map one key to another using AutoHotkey. For
+example, after installing AutoHotkey, to map Caps Lock key to Escape
+key, create an AutoHotkey script, i.e. a file with ahk as its extension,
 say uncap.ahk, with the following content.
 
     CapsLock::Esc
 
-Then save the file. Then double-click this file to run AutoHotKey with
+Then save the file. Then double-click this file to run AutoHotkey with
 this script. Once this is done, whenever Caps Lock key is pressed, it is
-translated to Escape key. An AutoHotKey icon appears in the notification
+translated to Escape key. An AutoHotkey icon appears in the notification
 area (system tray). To stop it, right click on the icon and select
 'Exit'.
 
 This method has an advantage that it does not require the system to be
-rebooted. However, AutoHotKey is a scripting language that can be used
+rebooted. However, AutoHotkey is a scripting language that can be used
 to do a number of other things such as defining hotkeys (shortcut keys),
 hotstrings (auto-replace), macros (scripted actions), etc. This may feel
 akin to killing a fly with a sledgehammer if one just wants to map a key
 to another key.
 
-[AutoHotKey]: http://www.autohotkey.com/
+[AutoHotkey]: http://www.autohotkey.com/
 
 
 ### Linux: setxkbmap ###
