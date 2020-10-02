@@ -42,8 +42,8 @@ The following list briefly describes some of the features of Uncap.
 
  1. Map Caps Lock key to Escape key on a new Windows system with almost
     no effort. Just download and double-click. This is the primary
-    reason why Uncap was written. This tool was written for users of vi
-    editor who like to map their Caps Lock key to Escape key for
+    reason why Uncap was written. This tool was written for users of
+    vi/Vim editor who like to map their Caps Lock key to Escape key for
     convenience.
  2. Map any key to any key, multiple keys to other keys, or disable
     keys using command line arguments. No additional file or script is
