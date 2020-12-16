@@ -159,7 +159,7 @@ struct state {
 Output error message on the standard error stream.
 
 @param format Format string for printf.
-@param ...    Additional argments.
+@param ...    Additional arguments.
 
 @return EXIT_FAILURE; the caller of this function may return this code
         to indicate abnormal termination of the program.
