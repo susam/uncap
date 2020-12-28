@@ -3,15 +3,18 @@ Uncap
 
 Map Caps Lock key to Escape key, or any to any key, on Windows systems.
 
-[![Download][DOWNLOAD-BADGE]][DOWNLOAD]
-[![MIT License][LICENSE-BADGE]][L]
+[![Download][Download SVG]][Download URL]
+[![MIT License][License Badge]][L]
+[![Twitter][Twitter SVG]][Twitter URL]
 
 Apart from documenting how Uncap works on Windows, this README contains
 detailed documentation about how to remap keys on Linux and Mac as well.
 
-[DOWNLOAD-BADGE]: https://img.shields.io/badge/download-uncap.exe-brightgreen.svg
-[DOWNLOAD]: https://github.com/susam/uncap/releases/download/0.3.0/uncap.exe
-[LICENSE-BADGE]: https://img.shields.io/badge/license-MIT-blue.svg
+[Download SVG]: https://img.shields.io/badge/download-uncap.exe-brightgreen.svg
+[Download URL]: https://github.com/susam/uncap/releases/download/0.3.0/uncap.exe
+[License Badge]: https://img.shields.io/badge/license-MIT-blue.svg
+[Twitter SVG]: https://img.shields.io/badge/twitter-%40susam-%231da1f2
+[Twitter URL]: https://twitter.com/susam
 
 
 Contents
@@ -68,7 +71,7 @@ described above.
 Get Started
 ------------
 
-Uncap is a single-file executable: [`uncap.exe`][DOWNLOAD].
+Uncap is a single-file executable: [`uncap.exe`][Download URL].
 
 The simplest way to run it is to download it and double-click it. No
 output window is displayed. It runs in background. Once it is running,
@@ -482,7 +485,7 @@ Resources
 
 Here is a list of useful links about this project.
 
-- [Download][DOWNLOAD]
+- [Download][Download URL]
 - [Source code](https://github.com/susam/uncap)
 - [Issue tracker](https://github.com/susam/uncap/issues)
 - [Changelog](https://github.com/susam/uncap/blob/master/CHANGES.md)
