@@ -6,7 +6,7 @@ Map Caps Lock key to Escape key, or any key to any key.
 
 The MIT License (MIT)
 ---------------------
-Copyright (c) 2015-2019 Susam Pal
+Copyright (c) 2015-2021 Susam Pal
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -36,16 +36,16 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 /** Version of the program. */
-#define VERSION "0.3.0"
+#define VERSION "0.4.0-dev"
 
 /** Author of the program. */
 #define AUTHOR "Susam Pal"
 
 /** Copyright notice. */
-#define COPYRIGHT "Copyright (c) 2015-2019 " AUTHOR
+#define COPYRIGHT "Copyright (c) 2015-2021 " AUTHOR
 
 /** URL to a copy of the license. */
-#define LICENSE_URL "<https://susam.in/licenses/mit/>"
+#define LICENSE_URL "<https://susam.github.io/licenses/mit.html>"
 
 /** URL to report issues to. */
 #define SUPPORT_URL "<https://github.com/susam/uncap/issues>"
@@ -174,18 +174,23 @@ int error(const char *format, ...)
 }
 
 
+/** Log format string. */
+#define LOG_FMT \
+    "%-10s %3d %5lu %3lu " \
+    "%3lu (%#04lx) %3lu (%#04lx) " \
+    "[%s%s%s%s%s%s%s]\n"
+
+
 /**
 Log details of a key stroke to a specified file.
 
 @param file File to write to. (type: FILE *)
 */
 #define logKeyTo(file) \
-            fprintf(file, "%-10s %3d %5lu %3lu " \
-                          "%-3s %-3s %-3s %-3s %-3s " \
-                          "%3lu %3lu (%s)\n", \
-                          wParamStr, nCode, p->dwExtraInfo, p->flags, \
-                          extStr, lowStr, injStr, altStr, upStr, \
-                          p->scanCode, p->vkCode, vkStr)
+            fprintf(file, LOG_FMT, \
+                    wParamStr, nCode, p->dwExtraInfo, p->flags, \
+                    p->scanCode, p->scanCode, p->vkCode, p->vkCode, \
+                    vkStr, upStr, extStr, altStr, lowStr, injStr, uncapStr)
 
 /**
 Log details of a key stroke.
@@ -205,6 +210,7 @@ void logKey(int nCode, WPARAM wParam, LPARAM lParam)
     char injStr[16];
     char altStr[16];
     char upStr[16];
+    char uncapStr[16];
 
     /* Translate identifier of keyboard message to string notation. */
     switch (wParam) {
@@ -228,6 +234,22 @@ void logKey(int nCode, WPARAM wParam, LPARAM lParam)
     /* Translate virtual-key code to string notation. */
     if (p->vkCode == VK_RETURN)
         sprintf(vkStr, "RETURN");
+    else if (p->vkCode == VK_CAPITAL)
+        sprintf(vkStr, "CAPITAL");
+    else if (p->vkCode == VK_ESCAPE)
+        sprintf(vkStr, "ESCAPE");
+    else if (p->vkCode == VK_LCONTROL)
+        sprintf(vkStr, "LCONTROL");
+    else if (p->vkCode == VK_RCONTROL)
+        sprintf(vkStr, "RCONTROL");
+    else if (p->vkCode == VK_LMENU)
+        sprintf(vkStr, "LMENU");
+    else if (p->vkCode == VK_RMENU)
+        sprintf(vkStr, "RMENU");
+    else if (p->vkCode == VK_LWIN)
+        sprintf(vkStr, "LWIN");
+    else if (p->vkCode == VK_RWIN)
+        sprintf(vkStr, "RWIN");
     else if ((p->vkCode >= '0' && p->vkCode <= '9') ||
              (p->vkCode >= 'A' && p->vkCode <= 'Z'))
         sprintf(vkStr, "%c", p->vkCode);
@@ -236,14 +258,15 @@ void logKey(int nCode, WPARAM wParam, LPARAM lParam)
     else if (p->vkCode >= VK_F1 && p->vkCode <= VK_F24)
         sprintf(vkStr, "F%d", p->vkCode - VK_F1 + 1);
     else
-        sprintf(vkStr, "0x%X", p->vkCode);
+        sprintf(vkStr, "%#x", p->vkCode);
 
     /* Translate each flag to string notation. */
-    strcpy(extStr, p->flags & LLKHF_EXTENDED ? "EXT" : "-");
-    strcpy(lowStr, p->flags & LLKHF_LOWER_IL_INJECTED ? "LOW": "-");
-    strcpy(injStr, p->flags & LLKHF_INJECTED ? "INJ" : "-");
-    strcpy(altStr, p->flags & LLKHF_ALTDOWN ? "ALT" : "-");
-    strcpy(upStr, p->flags & LLKHF_UP ? "UP" : "-");
+    strcpy(extStr, p->flags & LLKHF_EXTENDED ? " EXT" : "");
+    strcpy(lowStr, p->flags & LLKHF_LOWER_IL_INJECTED ? " LOW": "");
+    strcpy(injStr, p->flags & LLKHF_INJECTED ? " INJ" : "");
+    strcpy(altStr, p->flags & LLKHF_ALTDOWN ? " ALT" : "");
+    strcpy(upStr, p->flags & LLKHF_UP ? " UP" : " DN");
+    strcpy(uncapStr, p->dwExtraInfo == UNCAP_INFO ? " UNCAP" : "");
 
     /* Log key to standard error stream if verbose mode is enabled. */
     if (my.debug)
