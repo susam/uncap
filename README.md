@@ -225,6 +225,23 @@ details are illustrated in the list of examples below.
         uncap -h
 
 
+### Auto-start `uncap` when logging in to your Windows account
+
+1. Copy `uncap.exe` to a static location, e.g., `C:\Users\<your_username>\AppData\Local` 
+
+2. Create the following file for Windows Registry Editor. Replace the `<your_username>` placeholder with your username and the `[parameters]` placeholder with the required parameters.
+
+```
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
+"uncap"="\"C:\\Users\\<your_username>\\AppData\\Local\\uncap.exe\" [parameters]"
+```
+
+3. Run this registry file to add this registry key to the Windows Registry.
+4. Log out and log in to your user account. `uncap` should be running in the background. Verify it by running `tasklist | find "uncap"` in the command line.
+
+
 Known Issue with Microsoft Edge on Windows 10
 ---------------------------------------------
 
